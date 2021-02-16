@@ -14,7 +14,7 @@ if (window.location.href !== authorization_uri && window.location.href !== "http
 {
     newUrl = window.location.href;
     console.log(newUrl);
-    token = JSON.stringify(newUrl.split('=')[1]);
+    token = newUrl.split('=')[1];
     console.log("token:", token);
 }
  // if(document.body.innerText.includes("Lorem"))
