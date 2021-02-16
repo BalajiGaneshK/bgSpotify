@@ -9,9 +9,14 @@ let authorization_uri = "https://accounts.spotify.com/authorize?response_type=" 
     "& client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&code_challenge=" + code_challenge + "&code_challenge_method=" + code_challenge_method;
 
 let newUrl;
+let token;
 if (window.location.href !== authorization_uri && window.location.href !== "https://bgspotify.netlify.app/")
+{
     newUrl = window.location.href;
-console.log(newUrl);
+    console.log(newUrl);
+    token = JSON.stringify(newUrl.split('=')[1]);
+    console.log("token:", token);
+}
  // if(document.body.innerText.includes("Lorem"))
     //newUrl = window.location.href;
 
