@@ -8,5 +8,13 @@ let code_challenge = "a43a4462962f4975353cdac1b7e5d1a32fa7e523ac69855fbd78214680
 let authorization_uri = "https://accounts.spotify.com/authorize?response_type=" + response_type +
     "& client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&code_challenge=" + code_challenge + "&code_challenge_method=" + code_challenge_method;
 
+let newUrl;
+//if (window.location.href !== authorization_uri && window.location.href !== "bgspotify.netlify.app")
+    //newUrl = window.location.href;
+
+ // if(document.body.innerText.includes("Lorem"))
+    //newUrl = window.location.href;
+
+console.log("hello");
     
 // state (CORS ) and scope( specific api end points) not included
