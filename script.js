@@ -17,7 +17,7 @@ if (window.location.href !== authorization_uri && window.location.href !== "http
     authCode = newUrl.split('=')[1];
     console.log("token:", authCode);
 
-    let bodyURI = client_id + "/" + "authorization_code" + "-" + authCode + "-" + redirect_uri + "-" + code_challenge+":";
+    let bodyURI = client_id + "/" + "authorization_code" + "-" + authCode + "-" + redirect_uri + "-" + "bg-spotify"+":";
 
     fetch("https://accounts.spotify.com/api/token", { method: 'POST', body: bodyURI }).then(
         results => results.json()).then(console.log);
