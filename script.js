@@ -14,8 +14,13 @@ if (window.location.href !== authorization_uri && window.location.href !== "http
 {
     newUrl = window.location.href;
     console.log(newUrl);
-    token = newUrl.split('=')[1];
-    console.log("token:", token);
+    authCode = newUrl.split('=')[1];
+    console.log("token:", authCode);
+
+    let bodyURI = client_id + "/" + "authorization_code" + "-" + authCode + "-" + redirect_uri + "-" + code_challenge;
+
+    fetch("https://accounts.spotify.com/api/token", { method: 'POST', body: bodyURI }).then(
+        results => results.json()).then(console.log);
 }
  // if(document.body.innerText.includes("Lorem"))
     //newUrl = window.location.href;
