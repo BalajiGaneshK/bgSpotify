@@ -27,7 +27,7 @@ if (window.location.href !== authorization_uri && window.location.href !== "http
 fetch( `https://accounts.spotify.com/api/token`,
   {
     headers: {
-      'Content-Type': 'application/x-www-form-url-encoded',
+      'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': `Basic ${bodyURI}`
     },
     body: {
