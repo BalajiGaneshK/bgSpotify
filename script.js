@@ -17,11 +17,31 @@ if (window.location.href !== authorization_uri && window.location.href !== "http
     authCode = newUrl.split('=')[1];
     console.log("token:", authCode);
 
-    let bodyURI = client_id + "/" + "authorization_code" + "-" + authCode + "-" + redirect_uri + "-" + "bg-spotify"+":";
+    let bodyURI = client_id + "/" + "authorization_code" + "-" + authCode + "-" + redirect_uri + "-" + code_challenge;
 
-    fetch("https://accounts.spotify.com/api/token", { method: 'POST', body: bodyURI }).then(
-        results => results.json()).then(console.log);
+   // fetch("https://accounts.spotify.com/api/token", { method: 'POST', body: bodyURI }).then(
+       // results => results.json()).then(console.log);
+    
+    
+    
+fetch( `https://accounts.spotify.com/api/token`,
+  {
+    headers: {
+      'Content-Type': 'application/x-www-form-url-encoded',
+      'Authorization': `Basic ${bodyURI}`
+    },
+    body: {
+      grant_type: 'client_credentials'
+    },
+    json: true,
+    method : "POST"
+  }
+)
+
+  .then(response=>response.json() ).then(console.log)
+   
 }
+
  // if(document.body.innerText.includes("Lorem"))
     //newUrl = window.location.href;
 
